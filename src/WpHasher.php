@@ -140,8 +140,8 @@ class WpHasher
     }
 
     /**
-     * @param string                               $password
-     * @param string                               $hash
+     * @param string                              $password
+     * @param string                              $hash
      * @param \Gm\WpHasher\Hasher\HasherInterface $hasher
      * @return bool
      */
