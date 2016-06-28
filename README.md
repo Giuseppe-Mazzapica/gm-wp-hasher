@@ -16,6 +16,9 @@ $hasher = new Gm\WpHasher\WpHasher();
 $hasher->hash('plain_text_password');
 ```
 
+**Note**: Considering that nowadays there're better ways to encode passwords, only use this lib to
+encode passwords if you want a WordPress compatible hash.
+
 ## Why?
 
 Well, if you are getting rid of WordPress, you may want to need a way to check WordPress users
@@ -41,6 +44,10 @@ $hasher->hash('plain_text_password', new Gm\WpHasher\Hasher\BlowfishHasher());
 ```
 
 Example above uses Blowfish, to use Extended DES-based the class to use is `Gm\WpHasher\Hasher\ExtendedDesHasher`.
+
+**Note**: Considering that WordPress does not actually use these algorithms and considering that
+nowadays there're better ways to encode passwords, I can't actually think at a good reason to use this
+feature.
  
  
 ## License
