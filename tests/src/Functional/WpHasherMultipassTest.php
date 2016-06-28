@@ -38,9 +38,10 @@ class WpHasherMultipassTest extends \PHPUnit_Framework_TestCase
     {
         $hasher = new WpHasher();
 
-        $plain = substr($plain, rand(1, 7));
+        list($altLeft, $altRight) = $this->alter($plain);
 
-        $this->assertFalse($hasher->check($plain, $hashed));
+        $this->assertFalse($hasher->check($altLeft, $hashed));
+        $this->assertFalse($hasher->check($altRight, $hashed));
     }
 
     /**
@@ -52,9 +53,10 @@ class WpHasherMultipassTest extends \PHPUnit_Framework_TestCase
     {
         $hasher = new WpHasher();
 
-        $hashed = substr($hashed, rand(1, 7));
+        list($altLeft, $altRight) = $this->alter($hashed);
 
-        $this->assertFalse($hasher->check($plain, $hashed));
+        $this->assertFalse($hasher->check($plain, $altLeft));
+        $this->assertFalse($hasher->check($plain, $altRight));
     }
 
     /**
@@ -1086,5 +1088,21 @@ class WpHasherMultipassTest extends \PHPUnit_Framework_TestCase
             ['5RRyBqsQ96TcF@JH', '$P$BrwqLqJ6bWYDTW5FnDz/8Bz2dU9erD.'],
             ['l9WDoOdzglu9seae', '$P$BdjPhqTyExuv0esEUsqSpX/TXI3c2R0'],
         ];
+    }
+
+    /**
+     * @param $string
+     * @return string[]
+     */
+    private function alter($string)
+    {
+        $len = mb_strlen($string) - 1;
+        $first = $string[0] === 'x' ? 'y' : 'x';
+        $last = $string[$len] === 'x' ? 'y' : 'x';
+
+        $altLeft = $first.substr($string, 1);
+        $altRight = substr($string, 0, $len).$last;
+
+        return [$altLeft, $altRight];
     }
 }
