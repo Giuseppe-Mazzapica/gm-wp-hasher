@@ -31,12 +31,7 @@ class WpHasher
      * @var int
      */
     private $iterations;
-
-    /**
-     * @var bool
-     */
-    private $forceMultipass;
-
+    
     /**
      * @param int $length
      * @return string
@@ -105,7 +100,6 @@ class WpHasher
     public function __construct($iterations = 8, $forceMultipass = true)
     {
         $this->iterations = ($iterations < 4 || $iterations > 31) ? $iterations : 8;
-        $this->forceMultipass = $forceMultipass;
     }
 
     /**
