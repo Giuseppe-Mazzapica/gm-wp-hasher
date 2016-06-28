@@ -2,6 +2,11 @@
 
 > Standalone password hasher and hash-checker to mimic WordPress hasher.
 
+## Why?
+
+Well, if you are getting rid of WordPress, you may want to need a way to check WordPress users
+passwords **without** WordPress.
+
 ## Usage to check passwords
 
 ```php
@@ -18,11 +23,6 @@ $hasher->hash('plain_text_password');
 
 **Note**: Considering that nowadays there're better ways to encode passwords, only use this lib to
 encode passwords if you want a WordPress compatible hash.
-
-## Why?
-
-Well, if you are getting rid of WordPress, you may want to need a way to check WordPress users
-passwords **without** WordPress.
 
 
 ## More Info
