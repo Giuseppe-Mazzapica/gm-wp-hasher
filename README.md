@@ -58,4 +58,4 @@ Code used by WordPress is a slightly modified version of
 [Portable PHP password hashing framework](http://www.openwall.com/phpass/)
 originally developed by Solar Designer (solar at openwall.com) and in public domain.
 
-Being just a refactoring, I'm using public domain as well.
+Being this just a refactoring of WordPress code, I'm using public domain as well.
