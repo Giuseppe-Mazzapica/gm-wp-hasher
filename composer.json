@@ -1,0 +1,22 @@
+{
+    "name":              "gmazzap/gm-wp-hasher",
+    "description":       "Standalone password hasher and hash-checker to mimic WordPress hasher.",
+    "type":              "library",
+    "minimum-stability": "dev",
+    "prefer-stable":     true,
+    "license":           "CC0-1.0",
+    "authors":           [
+        {
+            "name":  "Giuseppe Mazzapica",
+            "email": "giuseppe.mazzapica@gmail.com"
+        }
+    ],
+    "require":           {
+        "php": ">=5.5"
+    },
+    "autoload":          {
+        "psr-4": {
+            "Gm\\WpHasher\\": "src/"
+        }
+    }
+}
