@@ -109,12 +109,12 @@ class WpHasher
     }
 
     /**
-     * @param string                                    $password
-     * @param string|null                               $gensalt
+     * @param string                                   $password
      * @param \Gm\WpHasher\Hasher\HasherInterface|null $hasher
+     * @param string|null                              $gensalt
      * @return string
      */
-    public function hash($password, $gensalt = null, Hasher\HasherInterface $hasher = null)
+    public function hash($password, Hasher\HasherInterface $hasher = null, $gensalt = null)
     {
         $hasher or $hasher = new Hasher\MultipassHasher();
         if (strlen($password) > 4096 || ! $hasher->available()) {
@@ -155,7 +155,7 @@ class WpHasher
             return false;
         }
 
-        $compare = $this->hash($password, $hash, $hasher);
+        $compare = $this->hash($password, $hasher, $hash);
         if ($compare[0] == '*') {
             $compare = crypt($password, $hash);
         }
